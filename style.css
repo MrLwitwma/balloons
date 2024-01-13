@@ -1,0 +1,74 @@
+body{
+    background-color: blanchedalmond;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a, img{
+    display: none;
+}
+
+.balloon{
+    top: 30px;
+    width: 140px;
+    height: 165px;
+    border-radius: 80%;
+    background-color: orange;
+    position: relative;
+    animation: move 5s infinite;
+}
+.balloon::before{
+    content: "🔺";
+    font-size: 30px;
+    position: absolute;
+    margin-top: 145px;
+    margin-left: 50px;
+    z-index: -99;
+}
+.balloon::after{
+    content: "";
+    width: 1px;
+    height: 250px;
+    background-color: rgb(255, 255, 255);
+    top: 170px;
+    margin: auto 70px; 
+    position: absolute;
+    z-index: -100;
+}
+
+@keyframes move {
+    0%, 100%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+}
+
+.balloon:nth-child(2){ background:hsl(245,40%,65%); animation-duration:3.5s; }
+.balloon:nth-child(2):before { color:hsl(245,40%,65%);  }
+
+.balloon:nth-child(3){ background:hsl(139,50%,60%); animation-duration:3s; }
+.balloon:nth-child(3):before { color:hsl(139,30%,50%);  }
+
+.balloon:nth-child(4){ background:hsl(59,50%,58%); animation-duration:4.5s; }
+.balloon:nth-child(4):before { color:hsl(59,30%,52%);  }
+
+@media (max-width: 650px){
+    .balloon:nth-child(4){
+        display: none;
+    }
+}
+
+@media (max-width: 500px){
+    .balloon:nth-child(3){
+        display: none;
+    }
+}
+
+@media (max-width: 300px){
+    .balloon:nth-child(2){
+        display: none;
+    }
+}
